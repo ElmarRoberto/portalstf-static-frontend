@@ -18,9 +18,12 @@ a {
 
 /* Card de Temas */ 
 
+table.valores-temas{
+  margin-bottom: 1px;
+}
 table.valores-temas .valor{
   font-weight: bold;
-  margin-top: -1px;
+  margin: 0px;
 }
 td > h4{
  color: $stfAzulHover;
@@ -41,55 +44,14 @@ h2#valor-negada {
 h2#valor-em-analise, h2#valor-merito-n-julgado {
   color: #68B95C;
 }
-td#valor-tema-negada, td#valor-tema-em-analise {
-  border-top: 0;
-  padding-bottom: 12px;
-}
-td#valor-tema-merito-julgado, td#valor-tema-merito-n-julgado {
-  border-top: 1px solid #f0eaea;
+td#valor-tema-em-analise{
+  border-right: 2px solid rgb(221, 220, 220);
 }
 
-/* Dropdown de Ministros */
 
-button.list-group-item{
-  cursor: default;
-
-  img {
-    cursor: pointer;
-  }
-}
-div.dropdown-relatores {
-  .list-group {
-    background-color: #b7b1b1;
-    min-width: 252.5px;
-  }
-  .cinza{
-    filter: grayscale(100%);
-  }
-  .list-group-item {
-    margin-bottom: 1px;
-    padding: 5px 5px;
-    display: inline-block;
-
-    hr {
-      margin: 10px;
-    }
-    h5, .link-modal-relator {
-      text-align: right;
-    }
-    .link-modal-relator {
-      font-size: 95%;
-    }
-    img {
-      position: relative;
-      float: left;
-    }
-  }
-}
 //esconder filtros relator e livre p/ não aparecer nos favoritos
 
 input#busca-relator {
-    border-box: box-sizing;
     background-image: url('../../img/pesquisaavancada/person3.png');
     background-repeat: no-repeat;
     background-position: 5px 8px;
@@ -133,6 +95,17 @@ tr{
   margin-left: auto; 
   margin-right: auto;
   margin-top: 10px;
+}
+
+.voto-favor, .voto-contra{
+  font-weight: 600;
+  font-size: 18px;
+}
+.voto-favor{
+  color: #4cbb71;
+}  
+.voto-contra{
+  color: #D9534F;
 }
 
 //badges modal
@@ -198,8 +171,8 @@ tr{
 i{
   cursor: pointer;
 }
-.less{
-  display: none;
+.more, .less, .seta{
+  vertical-align: middle;
 }
 .add{
   vertical-align: bottom; 
@@ -214,72 +187,6 @@ i{
   font-size: 21px;
 }
 
-/* Tab dos filtros 
-
-div.principal-tab-filtros{
-  width: 100%;
-  background-color: transparent;
-  padding: 5px !important;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  background-clip: padding-box;
-  opacity: 0.97;
-  filter: alpha(opacity=97);
-  margin-bottom: 10px;
-}
-div.menu-tab-filtros{
-  margin-bottom: 0px;
-}
-
-div.menu-tab-filtros div.list-group>a:first-child{
-  border-top-right-radius: 0;
-  -moz-border-top-right-radius: 0;
-}
-div.menu-tab-filtros div.list-group>a:last-child{
-  border-bottom-right-radius: 0;
-  -moz-border-bottom-right-radius: 0;
-}
-div.conteudo-sessao-filtros{
-  background-color: #ffffff;
-  /* border: 1px solid #eeeeee; 
-  padding-left: 10px;
-  padding-top: 10px;
-}
-div.conteudo-tab-filtros div.conteudo-sessao-filtros:not(.active){
-  display: none;
-}
-div.list-group-menu .list-group-item {
-  display: inline-block;
-  margin-bottom: 0;
-  margin-left:-4px;
-  margin-right: 0;
-}
-
-div.list-group-menu .list-group-item:first-child {
-  border-top-right-radius:0;
-  border-bottom-left-radius:4px;
-}
-div.list-group-menu .list-group-item:last-child {
-  border-top-right-radius:4px;
-  border-bottom-left-radius:0;
-}
-.list-group-item.active, .list-group-item.active:focus{
-  background-color: $stfAzulClaro;
-  border-color: $stfAzulClaro;
-}
-*/
-input.pesquisa-livre {
-  background-image: url('../../img/pesquisaavancada/search.png');
-  background-position: 5px 6px;
-  width: 100%;
-  position: relative;
-  background-repeat: no-repeat;
-  padding: 9px 20px 9px 45px;
-  margin-top: 5px;
-}
 input.opcao-filtro-rg {
   margin-bottom: 6px;
 }
@@ -315,11 +222,53 @@ input.opcao-filtro-rg {
   height: 0%;
   width: 0%;
 }
+// tabela repercussao geral
 
 .tabela-rg, .tabela-rg > thead{
-  border: 1px solid #f0eaea;
-  margin-top: 20px;
+  margin-top: 0px;
 }
+//votos
+.barra-sim{
+  background-color: #4cbb71;
+}
+.barra-nao{
+  background-color: #D9534F;
+}
+//dropdown de ações
+
+#tabela-RG > tr > .td-num-tema{
+  vertical-align: middle; 
+  text-align:center;
+}
+#tabela-RG > tr > .td-acoes, #tabela-RG > tr > .td-votos{
+  vertical-align: middle; 
+}
+.acao-item{
+  color: #313131; 
+  text-decoration: none;
+}
+
+.acao-item:hover{
+  font-weight: 550;
+  text-decoration: none;
+  color: #313131; 
+}
+
+.btn-acoes{
+  background-color: #00A7E6; 
+  border: none; 
+  border-radius: 4px; 
+  color: white; 
+  vertical-align: text-top
+  
+}
+
+.btn-acoes:hover, .btn-acoes:focus{
+  color: white;
+  background-color: $stfAzulMenu;
+}
+
+
 
 .nome-filtro{
   display: none;
@@ -418,7 +367,7 @@ ul .nav-tabs {
 }
 
 .tab-content {
-  padding: 0 20px;
+  padding: 0px;
 }
 
 .div_teste{
@@ -431,21 +380,44 @@ ul .nav-tabs {
   // border: 1px solid #00a7e6;
   border-radius: 5px;
 }
+//imagem dos ministros
+.card-imagem-ministros{
+  width:60px; 
+  height:60px; 
+  background-color:#666; 
+  border-radius: 200px;
+  cursor: pointer;
+}
+
+#lista_ministros{
+  margin-top: 0px;
+}
+.cinza{
+  filter: grayscale(100%)
+}
+
 
 /* google animation */
 
-input.box-opcoes-filtros {
-  border: none;
-  border-bottom: 1px solid #757575;
-  position: relative;
-  top: 10px;
+.container-filtros-rg{
+  display: grid; 
+  width: 62em; 
+  background-color: rgba(99, 207, 247, 0.4);
 }
-input.box-opcoes-filtros:focus {
+
+.box-opcoes-filtros {
+  border: none;
+  position: relative;
+  top: 15px;
+  margin-top: 17px;
+}
+.box-opcoes-filtros:focus {
   outline: none;
 }
-input.box-opcoes-filtros:focus ~ .titulo-opcao-filtro,
+.box-opcoes-filtros:focus ~ .titulo-opcao-filtro,
 .box-opcoes-filtros:valid ~ .titulo-opcao-filtro {
-  top: -12px;
+  top: -2px;
+  margin-top: 5px;
   font-size: 12px;
   color: white;
 }
@@ -455,11 +427,32 @@ label.titulo-opcao-filtro {
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
   position: absolute;
-  top: 12px;
+  top: 30px;
   left: 20px;
   font-size: 16px;
-  font-weight: normal;
-  color: #757575;
+  font-weight: 600;
+  color: #979696;
+}
+
+.link-pesquisa-avancada-rg{
+  color:black; 
+  bottom: 35px; 
+  right: 10px; 
+  font-size: 14px;
+}
+
+.esconder-filtros, .limpar-filtros{
+  color: white; 
+  font-size: 16px; 
+  
+}
+.esconder-filtros{
+  float: right
+}
+.esconder-filtros:hover, .limpar-filtros:hover{
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
 }
 
 div.tabela-temas {

@@ -2,22 +2,6 @@ import style from '../../assets/scss/secoes/pesquisaavancada/pesquisaavancada.sc
 import $ from 'jquery';
 import moment from 'moment';
 
-//mostrar e esconder icone descricao do tema
-var mostrar=$('.more');
-var esconder = $('.less');
-
-mostrar.click(function(e){
-	e.preventDefault();
-	mostrar.hide();
-	esconder.show();
-});
-
-esconder.click(function(e){
-	e.preventDefault();
-	esconder.hide();
-	mostrar.show();
-});
-
 /**
  * @description Filtra dados dentro algum elemento(tabela, lista, etc).
  * @params {String} dadoDeEntrada string vinda da entrada do usuário.
@@ -72,7 +56,7 @@ $(document).ready(function() {
  * @description Alterna estado dos relatores no dropdown de busca
  */
 $(document).ready(function() {
-	$("img.relator").click(function() {
+	$("img.card-imagem-ministros").click(function() {
 		if($(this).hasClass("cinza")) {
 			$(this).removeClass("cinza");
 		} else {
@@ -82,19 +66,50 @@ $(document).ready(function() {
 });
 
 /**
- * @description Limpa filtros
+ * @description Limpar filtros
  */
 $(document).ready(function() {
-	$("i.clear-icon").click(function() {
-		$("input.opcao-filtro-rg, input.pesquisa-livre, input.data-rg").val("");
-	})
+	$(".limpar-filtros").click(function() {
+		$(".box-opcoes-filtros").val("");
+
+		var imagens = document.getElementById("lista_ministros").getElementsByTagName("img");
+		$(imagens).addClass('cinza');
+	
+	});
+
+
+// esconder link pesquisa-avançada 
+	$('.link-pesquisa-avancada-rg').click(function(e){
+		e.preventDefault();
+		$(this).hide();
+	});
+	$('.esconder-filtros').click(function(e){
+		e.preventDefault();
+		$('.link-pesquisa-avancada-rg').show();
+	});
+
+// abrir modal plenario
+
+$(".progress").click(function(){
+	$('#li-detalhes').removeClass('active');
+	$('#li-votos').addClass('active');
+	$('#tab-detalhes').removeClass('active in');
+	$('#tab-votos').addClass('active in');
+});
+
+$(".num_tema").click(function(){
+	$('#li-detalhes').addClass('active');
+	$('#li-votos').removeClass('active');
+	$('#tab-detalhes').addClass('active in');
+	$('#tab-votos').removeClass('active in');
+});
 
 // mudar nome da pesquisa de acordo com o filtro selecionado
 
-	$('.btn-fav').click(function(){
-		var texto = $(this).data('titulo-pesquisa');
-		$('#titulo-filtro').text(texto);
-	});
+	// $('.btn-fav').click(function(){
+	// 	var texto = $(this).data('titulo-pesquisa');
+	// 	$('#titulo-filtro').text(texto);
+	// });
 
 	//mostrar e esconder icone descricao do tema
 	var mostrar=$('.ver-mais');
